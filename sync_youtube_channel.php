@@ -16,7 +16,7 @@
         // get channel info from api
         $channel = getApiChannel($channelId, $apiKey);
         // check if channel exists and is not empty
-        if(isset($channel) && !empty($channel)) {
+        if($channel && !empty($channel)) {
             // insert channel to db
             insert_channel($channel);
             return $channel;
@@ -43,7 +43,7 @@
         // get channel data from db
         $channelMatch = search_channel($channelName);
         // check if channel exists in db
-        if(isset($channelMatch) && isset($newChannel)) {
+        if($channelMatch && $newChannel) {
             // save videos
             saveVideos($newChannel->id, $channelMatch[0]['id'], $apiKey);
             return $newChannel->id; 
