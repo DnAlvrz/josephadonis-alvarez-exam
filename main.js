@@ -9,7 +9,6 @@ const app = Vue.createApp({
     methods: {
       async updateChannel (newChannel) {
         this.channelName = newChannel;
-        console.log('load channel:', newChannel);
         const res = await axios.get('youtube_channel_json.php/?action=save&channelName='+this.channelName);
       },
       async loadChannel (newChannel) {
